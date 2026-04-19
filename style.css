@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+/* NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    padding: 15px 60px;
+    background: #0b2a4a;
+    color: white;
+}
+
+/* LOGO */
+.logo img {
+    width: 250px;   
+    height: auto; /* Changed to auto to prevent stretching */
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase; /* Makes text capital like the image */
+    transition: 0.3s;
+}
+
+/* ACTIVE STATE - This turns Home orange on reload */
+nav a.active {
+    color: #d97642; /* The orange color from your logo */
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    background: #e67e22; /* Matches the 'A' in the logo better */
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 25px;
+    margin-left: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #d35400;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('images/bg.png');
+    color: white;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+}
+
+.primary {
+    background: orange;
+    color: white;
+}
+
+.secondary {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+/* CURRICULUM */
+.curriculum {
+    padding: 60px 20px;
+    background: #f3f3f3;
+    text-align: center;
+}
+
+.curriculum h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* CARDS CONTAINER */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* EACH CARD */
+.card {
+    background: linear-gradient(to bottom, #d7d9da, #d8dadb);
+    padding: 25px;
+    width: 350px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+/* CARD TITLE */
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ITEM ROW */
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* ICON */
+.item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    color: orange;
+}
+
+/* TEXT */
+.item h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.item p {
+    font-size: 13px;
+    color: #555;
+}
+
+/* CONTACT */
+.contact {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: #d4dbdf;
+}
+
+.form input, .form textarea {
+    display: block;
+    width: 250px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.left button{
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+
+}
+
+.form button{
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+}
+
+
+footer {
+    background-color: #0a1931; /* Deep Navy Blue */
+    color: white;
+    padding: 60px 10% 40px 10%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 130px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Logo Styling */
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+.t-blue { color: #3a7bd5; }
+.a-orange { color: #d97642; margin-left: -5px; }
+.logo-text {
+    font-size: 18px;
+    line-height: 1;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+
+/* Typography */
+h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    color: white;
+}
+
+/* Contact Items */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+.contact-item i {
+    margin-right: 15px;
+    margin-top: 4px;
+    color: white;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    background: white;
+    color: #0a1931;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: orange;
+    color: white;
+}
