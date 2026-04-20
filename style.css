@@ -297,7 +297,7 @@ ul li a:hover {
 }
 
 /* MOBILE FIX */
-@media (max-width: 768px) {
+@media (max-width: 100px) {
 
     header {
         flex-wrap: wrap;
