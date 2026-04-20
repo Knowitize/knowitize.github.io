@@ -193,22 +193,24 @@ nav a.active {
 
 
 footer {
-    background-color: #0a1931; /* Deep Navy Blue */
+    background-color: #0a1931; 
     color: white;
     padding: 60px 10% 40px 10%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    
-    /* CHANGE THIS: */
-    height: auto;           /* Allows the background to grow with content */
-    min-height: 130px;      /* Ensures it's at least 130px on big screens */
+
+    /* KEY FIXES HERE */
+    height: auto !important;      /* Forces height to be automatic */
+    overflow: hidden;             /* Forces container to wrap around flex/floated items */
+    display: block;               /* Ensures it behaves as a block-level container */
+    width: 100%;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Important for mobile stacking */
     gap: 30px;
 }
 
@@ -302,21 +304,13 @@ ul li a:hover {
 
 @media (max-width: 768px) {
     footer {
-        padding: 40px 20px; /* Less side padding so text doesn't squish */
-        text-align: center; /* Optional: centers text for a cleaner mobile look */
+        padding: 40px 5%;     /* Tighter padding for mobile */
+        height: auto !important; 
+        min-height: 100%;     /* Fallback to ensure full coverage */
     }
-
+    
     .footer-container {
-        flex-direction: column; /* Stack the columns */
-        align-items: center;    /* Center the stacked columns */
-    }
-
-    .contact-item {
-        justify-content: center; /* Center contact icons/text */
-    }
-
-    .social-icons {
-        justify-content: center; /* Center the icons */
+        flex-direction: column; /* Stacks the sections vertically */
     }
 }
 
