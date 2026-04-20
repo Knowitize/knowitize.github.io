@@ -165,15 +165,58 @@ nav a.active {
 .contact {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 50px;
     background: #d4dbdf;
+    flex-wrap: wrap; /* Allows items to wrap to next line on mobile */
+    gap: 30px;
 }
 
+.left {
+    flex: 1;
+    min-width: 300px; /* Prevents text from getting too squished */
+    text-align: left;
+}
+
+.form {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CHANGE: Use width 100% instead of a fixed px value */
 .form input, .form textarea {
     display: block;
-    width: 250px;
+    width: 100%; 
+    max-width: 400px; /* Limits size on PC so it doesn't get too huge */
     margin: 10px 0;
-    padding: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* RESPONSIVE MEDIA QUERY */
+@media (max-width: 768px) {
+    .contact {
+        padding: 40px 20px;
+        flex-direction: column; /* Stacks text on top of form */
+        text-align: center;
+    }
+
+    .left {
+        text-align: center;
+        min-width: 100%;
+    }
+
+    .form {
+        width: 100%;
+        align-items: center; /* Centers the form elements */
+    }
+
+    .form input, .form textarea {
+        max-width: 100%; /* Allows input to take full phone width */
+    }
 }
 
 .left button{
