@@ -193,20 +193,22 @@ nav a.active {
 
 
 footer {
-    background-color: #0a1931;
+    background-color: #0a1931; /* Deep Navy Blue */
     color: white;
     padding: 60px 10% 40px 10%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    /* height: 130px;  <-- REMOVE THIS! Let height be automatic */
-    min-height: 130px; /* Use min-height instead */
+    
+    /* CHANGE THIS: */
+    height: auto;           /* Allows the background to grow with content */
+    min-height: 130px;      /* Ensures it's at least 130px on big screens */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap; /* Allows columns to drop to next line */
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -298,33 +300,23 @@ ul li a:hover {
 }
 
 
-/* RESPONSIVE MEDIA QUERY */
 @media (max-width: 768px) {
     footer {
-        padding: 40px 20px; /* Less padding on mobile */
-        text-align: center;  /* Optional: centers text for a cleaner look */
+        padding: 40px 20px; /* Less side padding so text doesn't squish */
+        text-align: center; /* Optional: centers text for a cleaner mobile look */
     }
 
     .footer-container {
-        flex-direction: column; /* Stacks everything vertically */
-        align-items: center;    /* Centers columns */
-    }
-
-    .footer-column {
-        width: 100%;
-        margin-bottom: 20px;
+        flex-direction: column; /* Stack the columns */
+        align-items: center;    /* Center the stacked columns */
     }
 
     .contact-item {
-        justify-content: center; /* Centers contact info */
+        justify-content: center; /* Center contact icons/text */
     }
 
     .social-icons {
-        justify-content: center; /* Centers social icons */
-    }
-    
-    .logo img {
-        width: 180px; /* Scale down logo for mobile */
+        justify-content: center; /* Center the icons */
     }
 }
 
