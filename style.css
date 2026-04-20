@@ -245,168 +245,86 @@ footer {
     }
 }
 
-
-
 /* Logo Styling */
-
 .logo-placeholder {
-
     display: flex;
-
     align-items: center;
-
     font-size: 40px;
-
     font-weight: bold;
-
 }
-
 .t-blue { color: #3a7bd5; }
-
 .a-orange { color: #d97642; margin-left: -5px; }
-
 .logo-text {
-
     font-size: 18px;
-
     line-height: 1;
-
     margin-left: 10px;
-
     letter-spacing: 1px;
-
 }
-
-
 
 /* Typography */
-
 h4 {
-
     font-size: 14px;
-
     margin-bottom: 20px;
-
     letter-spacing: 1px;
-
     font-weight: 600;
-
 }
-
-
 
 ul {
-
     list-style: none;
-
 }
-
-
 
 ul li {
-
     margin-bottom: 10px;
-
 }
-
-
 
 ul li a {
-
     color: #b0b0b0;
-
     text-decoration: none;
-
     font-size: 14px;
-
     transition: 0.3s;
-
 }
-
-
 
 ul li a:hover {
-
     color: white;
-
 }
-
-
 
 /* Contact Items */
-
 .contact-item {
-
     display: flex;
-
     align-items: flex-start;
-
     margin-bottom: 15px;
-
     font-size: 14px;
-
     color: #b0b0b0;
-
 }
-
-
 
 .contact-item i {
-
     margin-right: 15px;
-
     margin-top: 4px;
-
     color: white;
-
 }
-
-
 
 /* Social Media Icons */
-
 .social-icons {
-
     display: flex;
-
     gap: 15px;
-
 }
-
-
 
 .social-icons a {
-
     width: 35px;
-
     height: 35px;
-
     background: white;
-
     color: #0a1931;
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     text-decoration: none;
-
     transition: 0.3s;
-
 }
 
-
-
 .social-icons a:hover {
-
     background: orange;
-
     color: white;
-
 } 
 
 /* Responsive Styles for Mobile */
