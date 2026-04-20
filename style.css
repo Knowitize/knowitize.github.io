@@ -193,45 +193,56 @@ nav a.active {
 
 
 footer {
-
-    background-color: #0a1931; /* Deep Navy Blue */
-
+    background-color: #0a1931; 
     color: white;
-
-    padding: 60px 10% 40px 10%;
-
+    /* Use pixels for side padding to prevent percentage scaling issues on wide screens */
+    padding: 60px 20px 40px 20px; 
     border-top-left-radius: 15px;
-
     border-top-right-radius: 15px;
-
-    height: 130px;
-
+    
+    /* FIX: Remove width: 100% and fixed heights */
+    height: auto; 
+    display: block;
+    width: auto; /* Let the browser handle the width naturally */
 }
-
-
 
 .footer-container {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: flex-start;
-
     flex-wrap: wrap;
-
     gap: 30px;
-
+    
+    /* FIX: Constrain the content so it doesn't spread to the very edges of big monitors */
+    max-width: 1200px; 
+    margin: 0 auto; /* Centers the footer content */
 }
 
-
-
 .footer-column {
-
     flex: 1;
+    min-width: 200px;
+}
 
-    min-width: 150px;
+/* RESPONSIVE FIX FOR MOBILE */
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 15px;
+        border-radius: 0; /* Optional: Looks better on mobile screens */
+    }
 
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
 }
 
 
