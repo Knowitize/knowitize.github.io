@@ -162,60 +162,49 @@ nav a.active {
 }
 
 /* CONTACT */
+/* --- Base Styles (Desktop) --- */
 .contact {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 50px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important; /* This allows wrapping */
+    padding: 50px 10%;
     background: #d4dbdf;
-    flex-wrap: wrap; /* Allows items to wrap to next line on mobile */
-    gap: 30px;
+    gap: 40px;
 }
 
-.left {
+.left, .form {
     flex: 1;
-    min-width: 300px; /* Prevents text from getting too squished */
-    text-align: left;
+    min-width: 300px; /* If screen is smaller than 600px (300+300), they wrap */
 }
 
-.form {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
+/* --- The Form Inputs --- */
+.form input, 
+.form textarea {
+    display: block !important;
+    width: 100% !important; /* Makes it fluid */
+    max-width: 100% !important; 
+    margin: 15px 0 !important;
+    padding: 12px !important;
+    box-sizing: border-box !important; /* Crucial: includes padding in width */
 }
 
-/* CHANGE: Use width 100% instead of a fixed px value */
-.form input, .form textarea {
-    display: block;
-    width: 100%; 
-    max-width: 400px; /* Limits size on PC so it doesn't get too huge */
-    margin: 10px 0;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* RESPONSIVE MEDIA QUERY */
-@media (max-width: 768px) {
+/* --- Mobile Specific Overrides --- */
+@media screen and (max-width: 768px) {
     .contact {
-        padding: 40px 20px;
-        flex-direction: column; /* Stacks text on top of form */
-        text-align: center;
+        flex-direction: column !important; /* Forces vertical stack */
+        padding: 30px 20px !important;
+        text-align: center !important;
     }
 
-    .left {
-        text-align: center;
-        min-width: 100%;
+    .left, .form {
+        width: 100% !important;
+        min-width: 100% !important;
     }
 
-    .form {
-        width: 100%;
-        align-items: center; /* Centers the form elements */
-    }
-
-    .form input, .form textarea {
-        max-width: 100%; /* Allows input to take full phone width */
+    .form input, 
+    .form textarea {
+        width: 100% !important;
     }
 }
 
