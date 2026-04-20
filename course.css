@@ -298,3 +298,34 @@ ul li a:hover {
         flex-direction: column; /* Stacks the sections vertically */
     }
 }
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding: 20px;          /* Reduce padding so it doesn't squish content */
+        text-align: center;
+    }
+
+    .logo img {
+        width: 180px;          /* Make logo smaller on mobile */
+        margin-bottom: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;       /* Allow links to go to the next line if needed */
+        justify-content: center;
+        gap: 10px;             /* Spacing between wrapped links */
+    }
+
+    nav a {
+        margin: 5px 10px;      /* Tighter spacing for mobile */
+        font-size: 12px;       /* Slightly smaller text */
+    }
+
+    .login-btn {
+        margin-left: 0;        /* Remove the side margin */
+        margin-top: 10px;      /* Add space above the button */
+        width: 100%;           /* Make button full width (optional, looks better on mobile) */
+    }
+}
