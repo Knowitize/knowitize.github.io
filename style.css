@@ -193,19 +193,20 @@ nav a.active {
 
 
 footer {
-    background-color: #0a1931; /* Deep Navy Blue */
+    background-color: #0a1931;
     color: white;
     padding: 60px 10% 40px 10%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    height: 130px;
+    /* height: 130px;  <-- REMOVE THIS! Let height be automatic */
+    min-height: 130px; /* Use min-height instead */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows columns to drop to next line */
     gap: 30px;
 }
 
@@ -294,6 +295,37 @@ ul li a:hover {
 .social-icons a:hover {
     background: orange;
     color: white;
+}
+
+
+/* RESPONSIVE MEDIA QUERY */
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 20px; /* Less padding on mobile */
+        text-align: center;  /* Optional: centers text for a cleaner look */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Stacks everything vertically */
+        align-items: center;    /* Centers columns */
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contact-item {
+        justify-content: center; /* Centers contact info */
+    }
+
+    .social-icons {
+        justify-content: center; /* Centers social icons */
+    }
+    
+    .logo img {
+        width: 180px; /* Scale down logo for mobile */
+    }
 }
 
 /* Responsive Styles for Mobile */
