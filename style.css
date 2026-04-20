@@ -163,59 +163,32 @@ nav a.active {
 
 /* CONTACT */
 .contact {
-
     display: flex;
-
     justify-content: space-around;
-
     padding: 50px;
-
     background: #d4dbdf;
-
 }
-
-
 
 .form input, .form textarea {
-
     display: block;
-
-    width: 250px;
-
+    width: 200px;
     margin: 10px 0;
-
     padding: 10px;
-
 }
-
-
 
 .left button{
-
     margin: 10px;
-
     padding: 10px 20px;
-
     border-radius: 25px;
-
     border: none;
-
-
 
 }
 
-
-
 .form button{
-
     margin: 10px;
-
     padding: 10px 20px;
-
     border-radius: 25px;
-
     border: none;
-
 }
 
 
