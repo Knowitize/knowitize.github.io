@@ -296,31 +296,33 @@ ul li a:hover {
     color: white;
 }
 
-/* ✅ MOBILE RESPONSIVE FIX */
+/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
-
     header {
-        padding: 10px 15px;   /* reduce side spacing */
-        flex-wrap: wrap;      /* allow items to move to next line */
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding: 20px;          /* Reduce padding so it doesn't squish content */
+        text-align: center;
     }
 
     .logo img {
-        width: 160px;         /* smaller logo for mobile */
+        width: 180px;          /* Make logo smaller on mobile */
+        margin-bottom: 15px;
     }
 
     nav {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* center items */
-        margin-top: 10px;
+        flex-wrap: wrap;       /* Allow links to go to the next line if needed */
+        justify-content: center;
+        gap: 10px;             /* Spacing between wrapped links */
     }
 
     nav a {
-        margin: 8px 10px;
+        margin: 5px 10px;      /* Tighter spacing for mobile */
+        font-size: 12px;       /* Slightly smaller text */
     }
 
     .login-btn {
-        margin: 10px 0;
+        margin-left: 0;        /* Remove the side margin */
+        margin-top: 10px;      /* Add space above the button */
+        width: 100%;           /* Make button full width (optional, looks better on mobile) */
     }
 }
