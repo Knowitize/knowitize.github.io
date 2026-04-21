@@ -125,6 +125,7 @@ nav a.active {
 
 .tab.active {
     width: 300px;
+    border: none;
 }
 
 .tab.active:active{
