@@ -176,6 +176,37 @@ nav a.active {
     color: white;
 }
 
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+@media (max-width: 1024px) {
+    /* For Tablets: Show 2 cards per row */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* For Mobile: Stack cards and fix container padding */
+    .main {
+        flex-direction: column; /* Stacks sidebars if you have them */
+        padding: 20px;          /* Reduces bulky padding on small screens */
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* 1 card per row (full width) */
+        gap: 15px;
+    }
+
+    .courses-section {
+        flex: none;
+        width: 100%;
+    }
+
+    .card {
+        box-sizing: border-box; /* Prevents padding from pushing width over 100% */
+    }
+}
+
 /*Footer*/
 footer {
     background-color: #0a1931; 
