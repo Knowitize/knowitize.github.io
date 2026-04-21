@@ -132,17 +132,6 @@ nav a.active {
     border: 4px solid rgb(246, 175, 45);
 }
 
-.tab:active{
-    border-bottom: 7px solid orange;
-}
-
-.tab.active {
-    width: 300px;
-}
-
-.tab.active:active{
-    border-bottom: 7px solid orange;
-}
 
 /* MAIN */
 .main {
