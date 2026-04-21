@@ -184,7 +184,7 @@ footer {
     padding: 40px 10% 20px 10%; 
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    width: 100%;
+    width: 70%;
     box-sizing: border-box; /* Ensures padding doesn't add to width */
 }
 
