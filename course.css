@@ -113,31 +113,18 @@ nav a.active {
     padding: 15px 30px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border: none; /* Remove default button borders */
-    border-bottom: 7px solid transparent; /* Hidden border to prevent jumping */
     cursor: pointer;
     font-weight: 700;
     width: 300px;
-    transition: all 0.3s ease;
-}
-
-/* When the button has the "active" class, show the orange border */
-.tab.active {
-    border-bottom: 7px solid orange;
-    background: #eee; /* Optional: slightly lighter background for active tab */
-    width: 300px;
-}
-
-/* Span styling inside the button */
-.tab span {
-    font-weight: 400;
-    font-size: 12px;
 }
 
 .tab:active{
     border-bottom: 7px solid orange;
 }
 
+.tab.active {
+    width: 300px;
+}
 
 .tab.active:active{
     border-bottom: 7px solid orange;
