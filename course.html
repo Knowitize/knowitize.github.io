@@ -181,5 +181,16 @@
 </footer>
 
 
+<script>
+    const tabs = document.querySelectorAll(".tab");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            tabs.forEach(t => t.classList.remove("active")); // remove from all
+            tab.classList.add("active"); // add to clicked
+        });
+    });
+</script>
+
 </body>
 </html>

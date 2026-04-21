@@ -116,6 +116,13 @@ nav a.active {
     cursor: pointer;
     font-weight: 700;
     width: 300px;
+    border-bottom: 7px solid transparent; /* no border initially */
+    transition: 0.3s;
+}
+
+/* ACTIVE TAB */
+.tab.active {
+    border-bottom: 7px solid orange;
 }
 
 .tab:active{
