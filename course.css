@@ -180,42 +180,42 @@ nav a.active {
 footer {
     background-color: #0a1931; 
     color: white;
-    padding: 60px 10% 40px 10%;
+    /* Reduced vertical padding for a slimmer PC look */
+    padding: 40px 10% 20px 10%; 
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-
-    /* KEY FIXES HERE */
-    height: auto !important;      /* Forces height to be automatic */
-    overflow: hidden;             /* Forces container to wrap around flex/floated items */
-    display: block;               /* Ensures it behaves as a block-level container */
     width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap; /* Important for mobile stacking */
-    gap: 30px;
+    flex-wrap: wrap; 
+    gap: 40px; /* Increased gap for better breathing room */
 }
 
 .footer-column {
-    flex: 1;
-    min-width: 200px;
+    /* Changed from flex: 1 to allow natural height and width */
+    flex: 0 1 200px; 
 }
 
 /* Logo Styling */
 .logo-placeholder {
     display: flex;
     align-items: center;
-    font-size: 40px;
+    font-size: 32px; /* Slightly smaller for better proportions */
     font-weight: bold;
+    margin-bottom: 15px;
 }
+
 .t-blue { color: #3a7bd5; }
 .a-orange { color: #d97642; margin-left: -5px; }
+
 .logo-text {
-    font-size: 18px;
-    line-height: 1;
+    font-size: 16px;
+    line-height: 1.2;
     margin-left: 10px;
     letter-spacing: 1px;
 }
@@ -223,17 +223,20 @@ footer {
 /* Typography */
 h4 {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Tighter spacing */
+    text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
 }
 
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Tighter spacing */
 }
 
 ul li a {
@@ -251,26 +254,21 @@ ul li a:hover {
 .contact-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 14px;
     color: #b0b0b0;
-}
-
-.contact-item i {
-    margin-right: 15px;
-    margin-top: 4px;
-    color: white;
 }
 
 /* Social Media Icons */
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .social-icons a {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     background: white;
     color: #0a1931;
     border-radius: 50%;
@@ -281,21 +279,19 @@ ul li a:hover {
     transition: 0.3s;
 }
 
-.social-icons a:hover {
-    background: orange;
-    color: white;
-}
-
-
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     footer {
-        padding: 40px 5%;     /* Tighter padding for mobile */
-        height: auto !important; 
-        min-height: 100%;     /* Fallback to ensure full coverage */
+        padding: 40px 5%;
     }
     
     .footer-container {
-        flex-direction: column; /* Stacks the sections vertically */
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-column {
+        flex: 1 1 100%; /* Columns take full width on mobile */
     }
 }
 
