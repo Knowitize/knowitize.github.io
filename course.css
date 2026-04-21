@@ -4,6 +4,10 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: #f3f3f3;
 }
@@ -118,6 +122,9 @@ nav a.active {
     width: 300px;
     border-bottom: 7px solid transparent; /* no border initially */
     transition: 0.3s;
+    text-decoration: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* ACTIVE TAB */
