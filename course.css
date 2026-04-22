@@ -175,12 +175,13 @@ nav a.active {
 }
 
 .enroll {
+    display: inline-block;     /* 🔑 makes it behave like button */
     background: orange;
     color: rgb(12, 12, 12);
     margin-top: 10px;
-    padding: 15px;
+    padding: 10px 15px;        /* better balanced padding */
     border-radius: 10px;
-    border: none;
+    text-decoration: none;     /* remove underline */
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
