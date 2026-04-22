@@ -155,7 +155,11 @@ nav a.active {
     background: white;
     padding: 15px;
     border-radius: 10px;
-    width: 100%;   /* take full grid column */
+    width: 100%;
+
+    display: flex;              /* 🔑 important */
+    flex-direction: column;     /* stack content vertically */
+    justify-content: space-between;
 }
 
 .card img {
@@ -175,13 +179,14 @@ nav a.active {
 }
 
 .enroll {
-    display: inline-block;     /* 🔑 makes it behave like button */
+    display: inline-block;
     background: orange;
     color: rgb(12, 12, 12);
-    margin-top: 10px;
-    padding: 10px 15px;        /* better balanced padding */
+    margin-top: auto;           /* 🔑 pushes button down */
+    padding: 10px 15px;
     border-radius: 10px;
-    text-decoration: none;     /* remove underline */
+    text-decoration: none;
+    text-align: center;
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
