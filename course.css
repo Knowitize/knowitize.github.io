@@ -186,7 +186,7 @@ nav a.active {
     padding: 10px 15px;
     border-radius: 10px;
     text-decoration: none;
-    /* text-align: center; */
+    text-align: center;
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
