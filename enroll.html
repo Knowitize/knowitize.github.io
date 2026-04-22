@@ -200,8 +200,11 @@
         bootcamp: this.bootcamp.value
     };
 
-    fetch("https://script.google.com/u/0/home/projects/1Uw474FKO2Lf7ZKoYt5aUCUUNZQZ3pJs_-TOUz0iOtUep_T6qSFfHi-q7/edit", {
+    fetch("https://script.google.com/macros/s/AKfycbz7Ax5uBlL_I8tDSxcwwEotkKv89AvW5uXAiuxv9ns5lXW_VaRcpY7aop8AytTvBxsx/exec", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(data)
     })
     .then(res => res.text())
