@@ -31,13 +31,13 @@
 
         <form>
 
-            <input type="text" placeholder="Student Name" required>
-            <input type="text" placeholder="Phone Number" required>
-            <input type="email" placeholder="Email Address" required><br>
+            <input type="text" name="name" placeholder="Student Name" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email Address" required><br>
 
             <!-- Academic Dropdown -->
             <label>Select Academic Grade</label>
-            <select id="grade">
+            <select id="grade" name="grade">
                 <option value="">Select Grade</option>
                 <option value="1000">Grade 9</option>
                 <option value="1000">Grade 10</option>
@@ -47,7 +47,7 @@
 
             <!-- Tech Dropdown -->
             <label>Select Tech Bootcamp (optional)</label>
-            <select id="tech">
+            <select id="tech" name="bootcamp">
                 <option value="">Select Course</option>
                 <option value="2500">HTML</option>
                 <option value="2500">CSS</option>
