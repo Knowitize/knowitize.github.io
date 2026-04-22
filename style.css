@@ -81,7 +81,7 @@ nav a.active {
     margin-bottom: 15px;
 }
 
-.hero-buttons button {
+.hero-buttons a {
     margin: 10px;
     padding: 10px 20px;
     border-radius: 25px;
