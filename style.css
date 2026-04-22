@@ -96,6 +96,10 @@ nav a.active {
     border-radius: 25px;
     border: none;
     text-decoration: none;
+    transition: background 0.3s;
+}
+.primary:hover{
+    background-color: #204c77;
 }
 
 .secondary {
