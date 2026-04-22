@@ -50,7 +50,7 @@
                 <img src="images/student1.png">
                 <h3>Grade 9</h3>
                 <p>Preparation for concepts.</p>
-                <a href="enroll.html" class="enroll">Enroll Now</a>
+                <a href="enroll.html?grade=Grade%209&fee=1000" class="enroll">Enroll Now</a>
                 <!-- <button>Detailed View</button> -->
                 
             </div>
@@ -199,6 +199,41 @@
             tab.classList.add("active"); // add to clicked
         });
     });
+</script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const grade = params.get("grade");
+    const tech = params.get("tech");
+
+    if (grade) {
+        document.getElementById("grade").value = getGradeValue(grade);
+    }
+
+    if (tech) {
+        document.getElementById("tech").value = getTechValue(tech);
+    }
+
+    function getGradeValue(grade) {
+        switch (grade) {
+            case "Grade 9": return "1000";
+            case "Grade 10": return "1000";
+            case "Grade 11": return "1500";
+            case "Grade 12": return "1500";
+            default: return "";
+        }
+    }
+
+    function getTechValue(tech) {
+        switch (tech) {
+            case "HTML": return "2500";
+            case "CSS": return "2500";
+            case "PHP": return "3000";
+            case "C / C++": return "3000";
+            case "SQL": return "3500";
+            default: return "";
+        }
+    }
 </script>
 
 </body>
