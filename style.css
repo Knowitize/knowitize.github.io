@@ -53,7 +53,7 @@ nav a.active {
 /* LOGIN BUTTON */
 .login-btn {
     background: #e67e22; /* Matches the 'A' in the logo better */
-    color: white;
+    color: rgb(1, 1, 1);
     border: none;
     padding: 8px 25px;
     border-radius: 25px;
@@ -81,16 +81,16 @@ nav a.active {
     margin-bottom: 15px;
 }
 
-.hero-buttons a {
+/* .hero-buttons a {
     margin: 10px;
     padding: 10px 20px;
     border-radius: 25px;
     border: none;
-}
+} */
 
 .primary {
     background: orange;
-    color: white;
+    color: rgb(10, 10, 10);
     margin: 10px;
     padding: 10px 20px;
     border-radius: 25px;
