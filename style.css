@@ -89,12 +89,12 @@ nav a.active {
 } */
 
 .primary {
+    display: inline-block;   /* 🔑 important */
     background: orange;
     color: rgb(10, 10, 10);
-    margin: 25px;
+    margin: 25px 0;          /* better vertical spacing */
     padding: 10px 20px;
     border-radius: 25px;
-    border: none;
     text-decoration: none;
     transition: background 0.3s;
 }
