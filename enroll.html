@@ -179,5 +179,38 @@
 }
 </script>
 
+<form id="enrollForm">
+  <input type="text" name="name" placeholder="Name">
+  <input type="email" name="email" placeholder="Email">
+  <input type="text" name="phone" placeholder="Phone">
+  <input type="text" name="class" placeholder="Class">
+  <input type="text" name="course" placeholder="Course">
+  <button type="submit">Enroll</button>
+</form>
+
+<script>
+    document.getElementById("enrollForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let data = {
+        name: this.name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        grade: this.grade.value,
+        bootcamp: this.bootcamp.value
+    };
+
+    fetch("https://script.google.com/u/0/home/projects/1Uw474FKO2Lf7ZKoYt5aUCUUNZQZ3pJs_-TOUz0iOtUep_T6qSFfHi-q7/edit", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(response => {
+        alert("Student Enrolled Successfully!");
+    })
+    .catch(err => console.log(err));
+    });
+</script>
+
 </body>
 </html>
