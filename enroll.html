@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowitize Tech Academy</title>
+    <link rel="icon" type="image/png" href="images/Untitled design.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="enroll.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo1.png" alt="Tech Academy Logo">
+    </div>
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="#main-footer" class="nav-link">CONTACT</a>
+        <button class="login-btn">Enroll Now</button>
+    </nav>
+</header>
+
+
+<h1 class="page-title">Enroll in Knowitize Tech Academy</h1>
+<section class="container">
+    <!-- LEFT FORM -->
+    <div class="form-section">
+        <h3>Student Enrollment</h3>
+
+        <form>
+
+            <input type="text" placeholder="Student Name" required>
+            <input type="text" placeholder="Phone Number" required>
+            <input type="email" placeholder="Email Address" required><br>
+
+            <!-- Academic Dropdown -->
+            <label>Select Academic Grade</label>
+            <select id="grade">
+                <option value="">Select Grade</option>
+                <option value="1000">Grade 9</option>
+                <option value="1000">Grade 10</option>
+                <option value="1500">Grade 11</option>
+                <option value="1500">Grade 12</option>
+            </select>
+
+            <!-- Tech Dropdown -->
+            <label>Select Tech Bootcamp (optional)</label>
+            <select id="tech">
+                <option value="">Select Course</option>
+                <option value="2500">HTML</option>
+                <option value="2500">CSS</option>
+                <option value="3000">PHP</option>
+                <option value="3000">C / C++</option>
+                <option value="3500">SQL</option>
+            </select>
+
+            <button type="submit">Enroll Now</button>
+
+        </form>
+    </div>
+
+    <!-- RIGHT SUMMARY -->
+    <div class="summary">
+        <h3>Summary</h3>
+
+        <p>Academic Fee: <span id="gradePrice">0</span></p>
+        <p id="techRow">Tech Fee: <span id="techPrice">0</span></p>
+
+        <hr>
+
+        <h4>Total: <span id="total">0</span></h4>
+    </div>
+
+</section>
+
+<!--footer-->
+<footer id="main-footer">
+    <div class="footer-container">
+        <div class="footer-column logo-section">
+            <div class="logo">
+                <img src="images/logo1.png" alt="Tech Academy Logo">
+            </div>
+            <!-- <div class="logo-placeholder">
+                <span class="t-blue">T</span><span class="a-orange">A</span> 
+                <div class="logo-text">TECH<br>ACADEMY</div>
+            </div> -->
+        </div>
+
+        <div class="footer-column">
+            <h4>QUICK LINKS</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Enroll</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>CONTACT INFO</h4>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Gujrat, Pakistan</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>disciplinedlab@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+92 309-1149168</span>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h4>SOCIAL MEDIA</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const grade = document.getElementById("grade");
+    const tech = document.getElementById("tech");
+
+    const gradePrice = document.getElementById("gradePrice");
+    const techPrice = document.getElementById("techPrice");
+    const total = document.getElementById("total");
+
+    function updatePrice() {
+        let g = parseInt(grade.value) || 0;
+        let t = parseInt(tech.value) || 0;
+
+        gradePrice.innerText = g;
+        techPrice.innerText = t;
+        total.innerText = g + t;
+    }
+
+    grade.addEventListener("change", updatePrice);
+    tech.addEventListener("change", updatePrice);
+
+    
+    const techRow = document.getElementById("techRow");
+
+    function updatePrice() {
+        let g = parseInt(grade.value) || 0;
+        let t = parseInt(tech.value) || 0;
+
+        gradePrice.innerText = g;
+        total.innerText = g + t;
+
+        if (t > 0) {
+            techRow.style.display = "block";
+            techPrice.innerText = t;
+        } else {
+            techRow.style.display = "none";
+        }
+    }
+    
+    function updatePrice() {
+    let g = parseInt(grade.value) || 0;
+    let t = parseInt(tech.value) || 0;
+
+    gradePrice.innerText = g;
+    total.innerText = g + t;
+
+    // 👇 Show/Hide tech price
+    if (t > 0) {
+        techPrice.parentElement.style.display = "block";
+        techPrice.innerText = t;
+    } else {
+        techPrice.parentElement.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
