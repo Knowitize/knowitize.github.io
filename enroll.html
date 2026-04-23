@@ -214,12 +214,9 @@
 
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
-  // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyBAusxC75OaR11Z4FVynUfOD-xogVpm2BY",
     authDomain: "knowitize-tech-academy.firebaseapp.com",
@@ -232,35 +229,37 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+  // 🔥 Initialize Firestore (THIS WAS MISSING)
+  const db = getFirestore(app);
 
-
+  // Form Submit
   document.getElementById("enrollForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const grade = document.getElementById("grade").value;
-  const course = document.getElementById("course").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const grade = document.getElementById("grade").value;
+    const course = document.getElementById("course").value;
 
-  try {
-    await addDoc(collection(db, "students"), {
-      name: name,
-      email: email,
-      phone: phone,
-      grade: grade,
-      course: course,
-      createdAt: new Date()
-    });
+    try {
+      await addDoc(collection(db, "students"), {
+        name: name,
+        email: email,
+        phone: phone,
+        grade: grade,
+        course: course,
+        createdAt: new Date()
+      });
 
-    alert("Student Enrolled Successfully!");
-    document.getElementById("enrollForm").reset();
+      alert("Student Enrolled Successfully!");
+      document.getElementById("enrollForm").reset();
 
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Error saving data");
-  }
-});
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error saving data");
+    }
+  });
 </script>
 
 
