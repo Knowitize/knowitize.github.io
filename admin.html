@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowitize Tech Academy</title>
+    <link rel="icon" type="image/png" href="images/Untitled design.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <section class="dashboard">
+
+        <!-- DASHBOARD OVERVIEW -->
+        <h2>DASHBOARD OVERVIEW</h2>
+
+        <div class="overview">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowitize Tech Academy</title>
+    <link rel="icon" type="image/png" href="images/Untitled design.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <section class="dashboard">
+
+    <h2>DASHBOARD OVERVIEW</h2>
+
+    <div class="overview">
+
+        <div class="box dark">
+            <h4>Total Enrollments</h4>
+            <h1 id="totalStudents">0</h1>
+        </div>
+
+        <div class="box">
+            <h4>New Students (This Week)</h4>
+            <h1 id="newStudents">0</h1>
+        </div>
+
+        <div class="box">
+            <h4>Course Revenue</h4>
+            <h1 id="revenue">$0</h1>
+        </div>
+
+        <div class="box">
+            <h4>Students List</h4>
+            <button onclick="viewStudents()">View Students</button>
+        </div>
+
+    </div>
+
+    <!-- COURSE SUMMARY -->
+    <div class="section">
+        <h3>COURSE PERFORMANCE SUMMARY</h3>
+
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Total Students</th>
+                <th>New This Week</th>
+            </tr>
+
+            <tr>
+                <td>Academic (Grades)</td>
+                <td id="gradeTotal">0</td>
+                <td id="gradeNew">0</td>
+            </tr>
+
+            <tr>
+                <td>Tech Bootcamps</td>
+                <td id="techTotal">0</td>
+                <td id="techNew">0</td>
+            </tr>
+
+        </table>
+    </div>
+
+</section>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBAusxC75OaR11Z4FVynUfOD-xogVpm2BY",
+  authDomain: "knowitize-tech-academy.firebaseapp.com",
+  databaseURL: "https://knowitize-tech-academy-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "knowitize-tech-academy",
+  storageBucket: "knowitize-tech-academy.firebasestorage.app",
+  messagingSenderId: "1008377804294",
+  appId: "1:1008377804294:web:5591dd1d078fd9150ef587"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const dataRef = ref(db, "students");
+
+onValue(dataRef, (snapshot) => {
+    let data = snapshot.val();
+
+    let total = 0;
+    let newWeek = 0;
+    let revenue = 0;
+
+    let gradeTotal = 0;
+    let techTotal = 0;
+    let gradeNew = 0;
+    let techNew = 0;
+
+    let now = new Date();
+    let weekAgo = new Date();
+    weekAgo.setDate(now.getDate() - 7);
+
+    for (let id in data) {
+        let student = data[id];
+        total++;
+
+        let studentDate = new Date(student.date);
+
+        // Weekly count
+        if (studentDate > weekAgo) {
+            newWeek++;
+
+            if (student.grade) gradeNew++;
+            if (student.tech) techNew++;
+        }
+
+        // Totals
+        if (student.grade) gradeTotal++;
+        if (student.tech) techTotal++;
+
+        // Revenue
+        revenue += Number(student.price || 0);
+    }
+
+    // Update UI
+    document.getElementById("totalStudents").innerText = total;
+    document.getElementById("newStudents").innerText = newWeek;
+    document.getElementById("revenue").innerText = "$" + revenue;
+
+    document.getElementById("gradeTotal").innerText = gradeTotal;
+    document.getElementById("techTotal").innerText = techTotal;
+
+    document.getElementById("gradeNew").innerText = gradeNew;
+    document.getElementById("techNew").innerText = techNew;
+});
+
+// Button
+window.viewStudents = function () {
+    window.location.href = "students.html";
+}
+</script>
+</body>
+</html>
+            <div class="box dark">
+                <h4>Total Enrollments</h4>
+                <h1>249</h1>
+            </div>
+
+            <div class="box">
+                <h4>New Students</h4>
+                <h1>15</h1>
+                <p>This month</p>
+            </div>
+
+            <div class="box">
+                <h4>Course Revenue</h4>
+                <h1>$250</h1>
+            </div>
+
+            <div class="box">
+                <h4>Completion Rate</h4>
+                <h1>74.9%</h1>
+            </div>
+
+        </div>
+
+        <!-- COURSE PERFORMANCE -->
+        <div class="section">
+
+            <h3>COURSE PERFORMANCE SUMMARY</h3>
+
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>Enrollments</th>
+                    <th>Active Students</th>
+                    <th>Completion</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td>Grade 10 Math</td>
+                    <td>18</td>
+                    <td>12</td>
+                    <td>80%</td>
+                    <td><button>Manage</button></td>
+                </tr>
+
+                <tr>
+                    <td>Grade 12 Math</td>
+                    <td>60</td>
+                    <td>40</td>
+                    <td>75%</td>
+                    <td><button>Manage</button></td>
+                </tr>
+
+                <tr>
+                    <td>HTML/CSS</td>
+                    <td>24</td>
+                    <td>20</td>
+                    <td>85%</td>
+                    <td><button>Manage</button></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!-- REVENUE / TRAFFIC -->
+        <div class="section">
+
+            <h3>ENROLLMENT / REVENUE</h3>
+
+            <div class="chart-box">
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+</body>
+</html>
