@@ -40,7 +40,7 @@
 
             <!-- Academic Dropdown -->
             <label>Select Academic Grade</label>
-            <select id="grade" name="grade">
+            <select id="grade" name="grade" required>
                 <option value="">Select Grade</option>
                 <option value="1000">Grade 9</option>
                 <option value="1000">Grade 10</option>
@@ -214,54 +214,54 @@
 
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+  // 🔥 Your Firebase config (replace with your own)
   const firebaseConfig = {
-    apiKey: "AIzaSyBAusxC75OaR11Z4FVynUfOD-xogVpm2BY",
-    authDomain: "knowitize-tech-academy.firebaseapp.com",
-    projectId: "knowitize-tech-academy",
-    storageBucket: "knowitize-tech-academy.firebasestorage.app",
-    messagingSenderId: "1008377804294",
-    appId: "1:1008377804294:web:5591dd1d078fd9150ef587"
-  };
+  apiKey: "AIzaSyBAusxC75OaR11Z4FVynUfOD-xogVpm2BY",
+  authDomain: "knowitize-tech-academy.firebaseapp.com",
+  databaseURL: "https://knowitize-tech-academy-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "knowitize-tech-academy",
+  storageBucket: "knowitize-tech-academy.firebasestorage.app",
+  messagingSenderId: "1008377804294",
+  appId: "1:1008377804294:web:5591dd1d078fd9150ef587"
+};
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
 
-  // 🔥 Initialize Firestore (THIS WAS MISSING)
-  const db = getFirestore(app);
+  // 🎯 Form Submit
+  const form = document.getElementById("enrollForm");
 
-  // Form Submit
-  document.getElementById("enrollForm").addEventListener("submit", async (e) => {
+  form.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const grade = document.getElementById("grade").value;
-    const course = document.getElementById("course").value;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const grade = form.grade.value;
+    const bootcamp = form.bootcamp.value;
 
-    try {
-      await addDoc(collection(db, "students"), {
-        name: name,
-        email: email,
-        phone: phone,
-        grade: grade,
-        course: course,
-        createdAt: new Date()
-      });
-
+    // Save to Firebase
+    push(ref(db, "students/"), {
+      name: name,
+      phone: phone,
+      email: email,
+      grade: grade,
+      bootcamp: bootcamp,
+      date: new Date().toLocaleString()
+    })
+    .then(() => {
       alert("Student Enrolled Successfully!");
-      document.getElementById("enrollForm").reset();
-
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Error saving data");
-    }
+      form.reset();
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Error: " + error.message);
+    });
   });
 </script>
-
 
 
 </body>
