@@ -15,10 +15,7 @@
         <th>Grade</th>
         <th>Tech</th>
         <th>Payment</th>
-        <td>
-            <button onclick="markPaid('${id}')">Paid</button>
-            <button onclick="markUnpaid('${id}')">Unpaid</button>
-        </td>
+        
     </tr>
 </table>
 
@@ -67,6 +64,10 @@ onValue(ref(db, "students"), (snapshot) => {
             <td>${s.grade || "-"}</td>
             <td>${s.bootcamp || "-"}</td>
             <td>${s.payment || "Pending"}</td>
+            <td>
+            <button onclick="markPaid('${id}')">Paid</button>
+            <button onclick="markUnpaid('${id}')">Unpaid</button>
+            </td>
         `;
         
         
