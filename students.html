@@ -64,11 +64,11 @@ onValue(ref(db, "students"), (snapshot) => {
             <td>${s.grade || "-"}</td>
             <td>${s.bootcamp || "-"}</td>
             <td>${s.payment || "Pending"}</td>
-            <td>
+        `;
+        <td>
             <button onclick="markPaid('${id}')">Paid</button>
             <button onclick="markUnpaid('${id}')">Unpaid</button>
-            </td>
-        `;
+        </td>
         
         
     }
