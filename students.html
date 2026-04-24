@@ -14,63 +14,66 @@
         <th>Phone</th>
         <th>Grade</th>
         <th>Tech</th>
-        <th>Payment</th>
+        <th>Payment Status</th>
+        <th>Action</th>
         
     </tr>
 </table>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
-import { update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { getDatabase, ref, onValue, update } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBAusxC75OaR11Z4FVynUfOD-xogVpm2BY",
-  authDomain: "knowitize-tech-academy.firebaseapp.com",
-  databaseURL: "https://knowitize-tech-academy-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "knowitize-tech-academy",
-  storageBucket: "knowitize-tech-academy.firebasestorage.app",
-  messagingSenderId: "1008377804294",
-  appId: "1:1008377804294:web:5591dd1d078fd9150ef587"
+    apiKey: "AIzaSyBAusxC75OaR11Z4FVynUfOD-xogVpm2BY",
+    authDomain: "knowitize-tech-academy.firebaseapp.com",
+    databaseURL: "https://knowitize-tech-academy-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "knowitize-tech-academy",
+    storageBucket: "knowitize-tech-academy.firebasestorage.app",
+    messagingSenderId: "1008377804294",
+    appId: "1:1008377804294:web:5591dd1d078fd9150ef587"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const tableBody = document.getElementById("tableBody");
 
-const table = document.getElementById("studentTable");
+// Global functions for buttons
 window.markPaid = function(id) {
-    update(ref(db, "students/" + id), {
-        payment: "Paid"
-    });
-};
-window.markUnpaid = function(id) {
-    update(ref(db, "students/" + id), {
-        payment: "Pending"
-    });
+    update(ref(db, "students/" + id), { payment: "Paid" });
 };
 
+window.markUnpaid = function(id) {
+    update(ref(db, "students/" + id), { payment: "Pending" });
+};
+
+// Real-time listener
 onValue(ref(db, "students"), (snapshot) => {
+    // 1. CLEAR the table first so it doesn't duplicate
+    tableBody.innerHTML = "";
+
     let data = snapshot.val();
+    if (!data) return;
 
     for (let id in data) {
         let s = data[id];
+        let row = tableBody.insertRow();
 
-        let row = table.insertRow();
-
+        // 2. Put EVERYTHING inside the template literal
         row.innerHTML = `
             <td>${s.name || ""}</td>
             <td>${s.email || ""}</td>
             <td>${s.phone || ""}</td>
             <td>${s.grade || "-"}</td>
             <td>${s.bootcamp || "-"}</td>
-            <td>${s.payment || "Pending"}</td>
+            <td style="color: ${s.payment === 'Paid' ? 'green' : 'red'}; font-weight: bold;">
+                ${s.payment || "Pending"}
+            </td>
+            <td>
+                <button onclick="markPaid('${id}')">Mark Paid</button>
+                <button onclick="markUnpaid('${id}')">Mark Unpaid</button>
+            </td>
         `;
-        <td>
-            <button onclick="markPaid('${id}')">Paid</button>
-            <button onclick="markUnpaid('${id}')">Unpaid</button>
-        </td>
-        
-        
     }
 });
 </script>
