@@ -96,7 +96,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// 📊 DASHBOARD DATA FUNCTION
+// 📊 UPDATED DASHBOARD DATA FUNCTION
 function loadDashboard() {
   const dataRef = ref(db, "students");
 
@@ -105,7 +105,7 @@ function loadDashboard() {
 
     let total = 0;
     let newWeek = 0;
-    let revenue = 0;
+    let revenue = 0; // Will only sum "Paid" students
 
     let gradeTotal = 0;
     let techTotal = 0;
@@ -122,30 +122,33 @@ function loadDashboard() {
 
       let studentDate = new Date(student.date);
 
-      // Weekly count
+      // 1. Weekly count logic
       if (studentDate > weekAgo) {
         newWeek++;
-
         if (student.grade) gradeNew++;
-        if (student.tech) techNew++;
+        if (student.tech || student.bootcamp) techNew++;
       }
 
-      // Totals
+      // 2. Category Totals logic
       if (student.grade) gradeTotal++;
-      if (student.tech) techTotal++;
+      if (student.tech || student.bootcamp) techTotal++;
 
-      // Revenue
-      revenue += Number(student.price || 0);
+      // 3. 💰 REVENUE LOGIC: Only add if status is "Paid"
+      if (student.payment === "Paid") {
+        // We use Number() to ensure math works even if price is saved as a string
+        revenue += Number(student.price || 0);
+      }
     }
 
-    // Update UI
+    // 4. Update UI
     document.getElementById("totalStudents").innerText = total;
     document.getElementById("newStudents").innerText = newWeek;
-    document.getElementById("revenue").innerText = "$" + revenue;
+    
+    // Formatting revenue with commas for better readability (e.g., $1,000)
+    document.getElementById("revenue").innerText = "$" + revenue.toLocaleString();
 
     document.getElementById("gradeTotal").innerText = gradeTotal;
     document.getElementById("techTotal").innerText = techTotal;
-
     document.getElementById("gradeNew").innerText = gradeNew;
     document.getElementById("techNew").innerText = techNew;
   });
