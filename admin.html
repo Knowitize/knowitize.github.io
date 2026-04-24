@@ -27,7 +27,7 @@
 
         <div class="box">
             <h4>Course Revenue</h4>
-            <h1 id="revenue">$0</h1>
+            <h1 id="revenue">0</h1>
         </div>
 
         <div class="box">
@@ -135,9 +135,16 @@ function loadDashboard() {
 
       // 3. 💰 REVENUE LOGIC: Only add if status is "Paid"
       if (student.payment === "Paid") {
-        // We use Number() to ensure math works even if price is saved as a string
-        revenue += Number(student.price || 0);
-      }
+        
+        // Use || to check for different possible price field names
+        let studentPrice = student.price || student.fee || student.amount || 0;
+        
+        // Convert to Number and add to revenue
+        revenue += Number(studentPrice);
+        
+        // Optional: Add a log to see it in your browser console (F12)
+        console.log(`Adding ${studentPrice} from ${student.name}`);
+    }
     }
 
     // 4. Update UI
