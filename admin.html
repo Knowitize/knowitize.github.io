@@ -102,6 +102,7 @@ function loadDashboard() {
 
   onValue(dataRef, (snapshot) => {
     let data = snapshot.val();
+    let totalRevenue = 0;
 
     let total = 0;
     let newWeek = 0;
@@ -135,16 +136,20 @@ function loadDashboard() {
 
       // 3. 💰 REVENUE LOGIC: Only add if status is "Paid"
       if (student.payment === "Paid") {
-        
-        // Use || to check for different possible price field names
-        let studentPrice = student.price || student.fee || student.amount || 0;
-        
-        // Convert to Number and add to revenue
-        revenue += Number(studentPrice);
-        
-        // Optional: Add a log to see it in your browser console (F12)
-        console.log(`Adding ${studentPrice} from ${student.name}`);
-    }
+        // 1. Try to get price from database
+        let price = Number(student.price || 0);
+
+        // 2. FALLBACK: If price is 0, check the course and assign a default
+        if (price === 0) {
+          if (student.grade) {
+            price = 1500; // Default price for Grade students
+          } else if (student.tech || student.bootcamp) {
+            price = 3000; // Default price for Bootcamp students
+          }
+        }
+
+        totalRevenue += price;
+      }
     }
 
     // 4. Update UI
