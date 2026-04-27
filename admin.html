@@ -81,6 +81,22 @@ const firebaseConfig = {
   appId: "1:1008377804294:web:5591dd1d078fd9150ef587"
 };
 
+const gradePrices = {
+  "Grade 9": 1000,
+  "Grade 10": 1000,
+  "Grade 11": 1500,
+  "Grade 12": 1500
+};
+
+const techPrices = {
+  "HTML": 2500,
+  "CSS": 2500,
+  "PHP": 3000,
+  "C": 3000,
+  "C++": 3000,
+  "SQL": 3500
+};
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const auth = getAuth(app);
@@ -140,11 +156,20 @@ function loadDashboard() {
 
         // 2. FALLBACK: If price is 0, check the course and assign a default
         if (price === 0) {
-          if (student.grade) {
-            price = 1500; // Default price for Grade students
-          } else if (student.tech || student.bootcamp) {
-            price = 3000; // Default price for Bootcamp students
-          }
+
+        // 🎓 Get price based on grade
+        if (student.grade && gradePrices[student.grade]) {
+            price = gradePrices[student.grade];
+        }
+
+        // 💻 Get price based on bootcamp
+        if ((student.bootcamp || student.tech)) {
+            let course = student.bootcamp || student.tech;
+
+            if (techPrices[course]) {
+            price += techPrices[course]; // add, not replace
+            }
+        }
         }
 
         totalRevenue += price;
