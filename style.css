@@ -26,6 +26,7 @@ header {
 .logo img {
     width: 250px;   
     height: auto; /* Changed to auto to prevent stretching */
+    
 }
 
 /* NAVIGATION */
